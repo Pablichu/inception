@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  nginx:
+    ports:
+      -443:443
+    restart: always
+  wordpress:
+    restart: always
+  mariadb:
+    volumes:
+    restart: always
+volumes:
+  mysqldb:
+  websitesdb:
+network:
