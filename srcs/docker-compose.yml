@@ -1,15 +1,34 @@
 version: "3.9"
 services:
   nginx:
-    ports:
-      -443:443
-    restart: always
-  wordpress:
-    restart: always
-  mariadb:
+    build: ./requierements/nginx
     volumes:
+      - websites:/
+    ports:
+      - 443:443
+    networks:
+      - nginx-wp:
+    restart: always
+
+  wordpress:
+    build: ./requierements/wordpress
+    volumes:
+      - websites:/
+    networks:
+      - nginx-wp
+      - wp-db
+    restart: always
+
+  mariadb:
+    build: ./requierements/mariadb
+    volumes:
+      - mysqldb:/var/run/mysql
+    networks:
+      - wp-db
     restart: always
 volumes:
-  mysqldb:
-  websitesdb:
-network:
+  websites: {}
+  mysqldb: {}
+networks:
+  nginx-wp:
+  wp-db:
