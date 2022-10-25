@@ -5,7 +5,7 @@ services:
     volumes:
       - websites:/
     ports:
-      - 443:443
+      - "443"
     networks:
       - nginx-wp:
     restart: always
@@ -17,6 +17,8 @@ services:
     networks:
       - nginx-wp
       - wp-db
+    expose:
+      - "9000"
     restart: always
 
   mariadb:
@@ -25,7 +27,10 @@ services:
       - mysqldb:/var/run/mysql
     networks:
       - wp-db
+    expose:
+      - "3306"
     restart: always
+
 volumes:
   websites: {}
   mysqldb: {}
