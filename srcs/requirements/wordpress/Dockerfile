@@ -4,7 +4,7 @@ RUN apk add lighttpd \
 			php7-common \
 			php7-session \
 			php7-iconv \
-			php7-json \
+			php7-json \ 
 			php7-gd \
 			php7-curl \
 			php7-xml \
@@ -23,3 +23,5 @@ RUN apk add lighttpd \
 			php7-ctype \
 			php7-dom \
 			php7-simplexml
+
+#COPY --chown=www-data:www-data wp-config-docker.php /usr/src/wordpress/
