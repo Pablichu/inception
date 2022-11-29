@@ -1,34 +1,40 @@
 version: "3.9"
 services:
   nginx:
-    build: ./requierements/nginx
-    volumes:
-      - websites:/
+    build: ./requirements/nginx
+   #volumes:
+   #  - websites:/
     ports:
       - "443:443"
     networks:
-      - nginx-wp:
+      - "nginx-wp"
     restart: always
 
-  wordpress:
-    build: ./requierements/wordpress
-    volumes:
-      - websites:/
-    networks:
-      - nginx-wp
-      - wp-db
-    restart: always
-
-  mariadb:
-    build: ./requierements/mariadb
-    volumes:
-      - mysqldb:/var/run/mysql
-    networks:
-      - wp-db
-    restart: always
-volumes:
-  websites: {}
-  mysqldb: {}
+#  wordpress:
+#    build: ./requierements/wordpress
+#    volumes:
+#      - websites:/
+#    networks:
+#      - nginx-wp
+#      - wp-db
+#    #expose:
+#    #  - "9000"
+#    restart: always
+#
+#  mariadb:
+#    build: ./requierements/mariadb
+#    volumes:
+#      - mysqldb:/var/run/mysql
+#    networks:
+#      - wp-db
+#    #expose:
+#    # - "3306"
+#    restart: always
+#
+#volumes:
+#  websites:
+#  mysqldb:
 networks:
   nginx-wp:
-  wp-db:
+#  wp-db:
+#
