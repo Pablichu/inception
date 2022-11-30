@@ -1,8 +1,8 @@
 FROM alpine:3.15.6
 
-RUN apk add openssl \
-            nginx
+RUN apk add nginx \
+            openssl
 
-COPY ./conf/nginx.conf /
+#COPY ./conf/nginx.conf /
 
-CMD [ "nginx" ]
+ENTRYPOINT [ "nginx", "-g", "daemon off;"]

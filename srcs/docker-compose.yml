@@ -5,10 +5,10 @@ services:
    #volumes:
    #  - websites:/
     ports:
-      - "443:443"
-    networks:
-      - "nginx-wp"
-    restart: always
+      - "80:80"
+#    networks:
+#      - "nginx-wp"
+#    restart: always
 
 #  wordpress:
 #    build: ./requierements/wordpress
