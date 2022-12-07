@@ -12,4 +12,12 @@ ENTRYPOINT - A container with an ENTRYPOINT is preferred when you want to define
 .env set enviromental variables for docker-compose
 
 Links:
-https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
+Docker best practices: https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
+
+wp-config file tutorial: https://kinsta.com/blog/wp-config-php/
+
+Shell tutorial: http://trajano.us.es/~fjfj/shell/shellscript.htm
+
+Alpine wiki mariadb: https://wiki.alpinelinux.org/wiki/MariaDB
+
+Alpine wiki Wordpress: https://wiki.alpinelinux.org/wiki/WordPress

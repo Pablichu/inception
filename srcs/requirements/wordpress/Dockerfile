@@ -11,7 +11,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		php7-openssl
 		#redis
 
-#UN adduser -u 82 -D -S -G www-data www-data; \
+#RUN adduser -u 82 -D -S -G www-data www-data; \
 #	chown www-data:www-data /var/www/html; \
 #	chmod 777 /var/www/html
 
