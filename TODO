@@ -1,0 +1,15 @@
+- Do a proper Makefile
+- sh for every container to configurate nginx(ssl), wordpress & mariabd 
+- 
+
+Progress:
+The structure of the project is done, now every container must settup properly.
+
+Knowledge:
+CMD - The CMD describes the default container parameters or commands. The user can easily override the default command when you use this.
+ENTRYPOINT - A container with an ENTRYPOINT is preferred when you want to define an executable. You can only override it if you use the --entrypoint flag.
+
+.env set enviromental variables for docker-compose
+
+Links:
+https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
