@@ -6,35 +6,40 @@ services:
    #  - websites:/
     ports:
       - "80:80"
-#    networks:
-#      - "nginx-wp"
-#    restart: always
+      - "443:443"
+    networks:
+      - "nginx-wp"
+    restart: always
 
-#  wordpress:
-#    build: ./requierements/wordpress
-#    volumes:
-#      - websites:/
-#    networks:
-#      - nginx-wp
-#      - wp-db
-#    #expose:
-#    #  - "9000"
-#    restart: always
-#
-#  mariadb:
-#    build: ./requierements/mariadb
+  wordpress:
+    build: ./requirements/wordpress
+    #volumes:
+    #  - websites:/
+      #- wordpress:/var/www/html
+    networks:
+      - nginx-wp
+      - wp-db
+    expose:
+      - "9000:9000"
+    depends_on:
+      - mariadb
+      - nginx
+    restart: always
+
+  mariadb:
+    build: ./requirements/mariadb
 #    volumes:
 #      - mysqldb:/var/run/mysql
-#    networks:
-#      - wp-db
-#    #expose:
-#    # - "3306"
-#    restart: always
-#
+    networks:
+      - wp-db
+#      - db:/var/lib/mysql
+    expose:
+     - "3306:3306"
+    restart: always
+
 #volumes:
 #  websites:
 #  mysqldb:
 networks:
   nginx-wp:
-#  wp-db:
-#
+  wp-db:

@@ -1,27 +1,29 @@
 FROM alpine:3.15.6
 
-RUN apk add lighttpd \
-			php7-common \
-			php7-session \
-			php7-iconv \
-			php7-json \ 
-			php7-gd \
+RUN apk add --no-cache \
+			php7 \
+			php7-fpm \
 			php7-curl \
-			php7-xml \
+			php7-opcache \
 			php7-mysqli \
-			php7-imap \
-			php7-cgi \
-			fcgi \
-			php7-pdo \
-			php7-pdo_mysql \
-			php7-soap \
-			php7-xmlrpc \
-			php7-posix \
-			php7-mcrypt \
-			php7-gettext \
-			php7-ldap \
-			php7-ctype \
 			php7-dom \
-			php7-simplexml
+			php7-mbstring \
+			php7-openssl
+			#redis
 
-#COPY --chown=www-data:www-data wp-config-docker.php /usr/src/wordpress/
+RUN apk add wget \
+			tar; \
+			mkdir -p /usr/share/webapps/; \
+			cd /usr/share/webapps/; \
+			wget http://wordpress.org/latest.tar.gz; \
+			tar -xzvf latest.tar.gz; \
+			rm latest.tar.gz
+
+ENTRYPOINT [ "wp", "server" ]
+
+#	adduser -u 82 -D -S -G www-data www-data; \
+#	chown www-data:www-data /var/www/html; \
+#	chmod 777 /var/www/html
+
+
+#COPY wp-config-docker.php /usr/src/wordpress/
