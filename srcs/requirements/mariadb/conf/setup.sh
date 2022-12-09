@@ -19,9 +19,8 @@
 
 chown mysql:mysql /var/lib/mysql
 
-/usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-/etc/init.d/mariadb setup
 /etc/init.d/mariadb start
+/usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
 # Automate automate-mysql_secure_installation
 # Make sure that NOBODY can access the server without a password
