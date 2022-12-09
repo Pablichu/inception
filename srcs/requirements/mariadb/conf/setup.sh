@@ -17,7 +17,7 @@
 
 #!/bin/sh
 
-chown mysql:mysql /var/lib/mysql
+chown mysql:mysql -R /var/lib/mysql
 
 /etc/init.d/mariadb start
 /usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql

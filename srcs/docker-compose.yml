@@ -3,7 +3,7 @@ services:
   nginx:
     build: ./requirements/nginx
    #volumes:
-   #  - websites:/
+   #  - /home/pmira-pe/data:STILL FIGURING OUT
     ports:
       - "80:80"
       - "443:443"
@@ -14,8 +14,7 @@ services:
   wordpress:
     build: ./requirements/wordpress
     #volumes:
-    #  - websites:/
-      #- wordpress:/var/www/html
+    # - /home/pmira-pe/data:/var/www/html
     networks:
       - nginx-wp
       - wp-db
@@ -29,7 +28,7 @@ services:
   mariadb:
     build: ./requirements/mariadb
 #    volumes:
-#      - mysqldb:/var/run/mysql
+#      - /home/pmira-pe/data:/var/run/mysql
     networks:
       - wp-db
 #      - db:/var/lib/mysql
@@ -37,9 +36,6 @@ services:
      - "3306:3306"
     restart: always
 
-#volumes:
-#  websites:
-#  mysqldb:
 networks:
   nginx-wp:
   wp-db:
