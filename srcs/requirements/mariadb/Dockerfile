@@ -6,4 +6,4 @@ RUN apk update && apk upgrade && apk add --no-cache \
 
 COPY ./conf/setup.sh /tmp
 
-ENTRYPOINT [ "sh", "setup.sh" ]
+ENTRYPOINT [ "sh", "/tmp/setup.sh" ]
