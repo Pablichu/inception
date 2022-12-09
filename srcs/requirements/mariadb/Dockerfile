@@ -4,4 +4,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
         mariadb \
         mariadb-client
 
-ENTRYPOINT [ "mariadb", "setup ;", "mariadb", "start" ]
+COPY ./conf/setup.sh /tmp
+
+ENTRYPOINT [ "sh", "setup.sh" ]

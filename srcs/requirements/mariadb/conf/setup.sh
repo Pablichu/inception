@@ -19,47 +19,36 @@
 
 chown mysql:mysql /var/lib/mysql
 
-sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-
+/usr/bin/mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 /etc/init.d/mariadb setup
 /etc/init.d/mariadb start
 
 # Automate automate-mysql_secure_installation
 # Make sure that NOBODY can access the server without a password
-mysql -e "UPDATE mysql.user SET Password = PASSWORD('CHANGEME') WHERE User = 'root'"
 # Kill the anonymous users
-mysql -e "DROP USER ''@'localhost'"
 # Because our hostname varies we'll use some Bash magic here.
-mysql -e "DROP USER ''@'$(hostname)'"
 # Kill off the demo database
-mysql -e "DROP DATABASE test"
 # Make our changes take effect
-mysql -e "FLUSH PRIVILEGES"
 # Any subsequent tries to run queries this way will get access denied because lack of usr/pwd param
+readonly MYSQL_SECURE="UPDATE mysql.user SET Password = PASSWORD($MYSQL_ROOT_PASSWORD) WHERE User = 'root';
+DROP USER ''@'localhost';
+DROP USER ''@'$(hostname)';
+DROP DATABASE test;
+FLUSH PRIVILEGES;"
 
+#Create wordpress database
+readonly DB_CREATE="CREATE DATABASE $WP_DB_NAME;
+CREATE USER $MYSQL_USER@localhost IDENTIFIED BY $MYSQL_PASSWORD;
+GRANT ALL PRIVILEGES ON $WP_DB_NAME.* TO $MYSQL_USER@localhost ;
+FLUSH PRIVILEGES;
+EXIT;"
 
-#Creating & adding wordpress to database
-#mysql -u root -p
-#
-#Now, Create a database for the WordPress installation. In this case, we'll create a database named dbwordpress and off-course you can change the name.
-#
-#CREATE DATABASE dbwordpress;
-#
-#Create a new user and set the password. Use your own and unique password here.
-#
-#CREATE USER wpuser@localhost IDENTIFIED BY 'wpP455w0rd';
-#
-#Now grant the user full access the database.
-#
-#GRANT ALL PRIVILEGES ON dbwordpress.* TO wpuser@localhost ;
-#
-#Refresh the database tables and exit from MariaDB.
-#
-#FLUSH PRIVILEGES;
-#
-#exit;
+readonly SQL="{MYSQL_SECURE}{DB_CREATE}"
 
+mysql -u root -p -e "$SQL"
 
 #Allow 
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/my.cnf
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
+
+rm /tmp/setup.sh
