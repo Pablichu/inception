@@ -1,9 +1,20 @@
-SRCS =		srcs/
-COMUP =		docker compose up --build -d
-COMDOWN =	docker compose down
+COMP =		./srcs/docker-compose.yml
+COMUP =		up --build -d
+COMDOWN =	down
 
 all:
-	$(MAKE) -C $(SRCS) $(COMUP)
+	@docker compose -f $(COMP) $(COMUP)
 
-destroy:
-	$(MAKE) -C $(SRCS) $(COMDOWN)
+down:
+	@docker compose -f $(COMP) $(COMDOWN)
+
+clean:
+	@docker stop $$(docker ps -qa);\
+	docker rm $$(docker ps -qa);\
+	docker rmi -f $$(docker images -qa);\
+	docker volume rm $$(docker volume ls -q);\
+	docker network rm $$(docker network ls -q);\
+
+re: clean all
+
+.PHONY: all down clean re
