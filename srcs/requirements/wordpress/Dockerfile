@@ -17,15 +17,10 @@ RUN apk update && apk upgrade && apk add --no-cache \
 
 RUN apk update && apk upgrade && apk add --no-cache \
 		wget \
-		tar; \
-		mkdir -p /usr/share/webapps/; \
-		cd /usr/share/webapps/; \
-		wget http://wordpress.org/latest.tar.gz; \
-		tar -xzvf latest.tar.gz; \
-		rm latest.tar.gz
+		tar;
 
-ENTRYPOINT [ "wp", "server" ]
+COPY ./conf/setup.sh setup.sh
 
-
+ENTRYPOINT [ "sh", "/usr/share/webapps/setup.sh" ]
 
 #COPY wp-config-docker.php /usr/src/wordpress/

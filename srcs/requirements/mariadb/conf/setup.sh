@@ -22,6 +22,7 @@ if [ ! -d "var/lib/mysql/$WP_DB_NAME" ]; then
     chown -R mysql:mysql "/var/lib/mysql"
     mysql_install_db --user=mysql --ldata=/var/lib/mysql > /dev/null
 
+
     #echo "$DB_CREATE"
     #echo "$MYSQL_SECURE"
 
