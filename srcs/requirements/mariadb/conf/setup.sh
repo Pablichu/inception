@@ -9,17 +9,17 @@ EXIT;"
 # Automate automate-mysql_secure_installation
 readonly MYSQL_SECURE="UPDATE mysql.user SET Password = PASSWORD($MYSQL_ROOT_PW) WHERE User = 'root';DROP USER ''@'localhost';DROP USER ''@'$(hostname)';DROP DATABASE test;FLUSH PRIVILEGES;EXIT;"
 
-if [ ! -d "/run/mysql" ]; then
-    mkdir -p "/run/mysql"
+if [ ! -d "/run/mysqld" ]; then
+    mkdir -p "/run/mysqld"
 fi
-chown -R mysql:mysql "/run/mysql"
+chown -R mysql:mysql "/run/mysqld"
 
 if [ ! -d "var/lib/mysql/$WP_DB_NAME" ]; then
     if [ ! -d "var/lib/mysql" ]; then
     echo "Cabroooon"
         mkdir -p "var/lib/mysql"
     fi
-    chown -R mysql:mysql "/var/lib/mysql"
+    chown -R mysql:root "/var/lib/mysql"
     mysql_install_db --user=mysql --ldata=/var/lib/mysql > /dev/null
 
 
@@ -33,8 +33,8 @@ else
 fi
 
 #Allow 
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/my.cnf
+#sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/my.cnf
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
 
-#rm /tmp/setup.sh
-exec /usr/bin/mysqld --user=mysql --console --bind-address=0.0.0.0
+exec /usr/bin/mysqld --user=mysql --console  --bind-address=0.0.0.0
+#tail -f /dev/null
