@@ -1,6 +1,7 @@
 - Do a proper Makefile
 - sh for every container to configurate nginx(ssl), wordpress & mariabd 
-- 
+- Mariadb starts up but we do not configure well the database
+
 
 Progress:
 The structure of the project is done, now every container must settup properly.
