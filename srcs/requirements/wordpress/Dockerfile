@@ -21,6 +21,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
 
 COPY ./conf/setup.sh setup.sh
 
-ENTRYPOINT [ "sh", "/usr/share/webapps/setup.sh" ]
+ENTRYPOINT [ "sh", "setup.sh" ]
 
 #COPY wp-config-docker.php /usr/src/wordpress/
