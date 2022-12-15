@@ -11,34 +11,38 @@ services:
 #      - "nginx-wp"
 #    restart: always
 
-#  wordpress:
-#    build: ./requirements/wordpress
-#    #volumes:
-#    # - /home/pmira-pe/data:/var/www/html
-#    networks:
-#      - nginx-wp
-#      - wp-db
-#    expose:
-#      - "9000:9000"
-#    depends_on:
-#      - mariadb
-#      - nginx
-#    restart: always
-
-  mariadb:
-    build: ./requirements/mariadb
-#    volumes:
-#      - /home/pmira-pe/data:/var/run/mysql
+  wordpress:
+    build: ./requirements/wordpress
+    #volumes:
+    # - /home/pmira-pe/data:/var/www/html
     networks:
+      - nginx-wp
       - wp-db
     expose:
-     - "3306:3306"
-    #restart: always
+      - "9000:9000"
+    #depends_on:
+    #  - mariadb
+    #  - nginx
     environment:
-      MYSQL_ROOT_PW: ${MYSQL_ROOT_PW}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PW: ${MYSQL_PW}
       WP_DB_NAME: ${WP_DB_NAME}
+    restart: always
+
+#  mariadb:
+#    build: ./requirements/mariadb
+##    volumes:
+##      - /home/pmira-pe/data:/var/run/mysql
+#    networks:
+#      - wp-db
+#    expose:
+#     - "3306:3306"
+#    #restart: always
+#    environment:
+#      MYSQL_ROOT_PW: ${MYSQL_ROOT_PW}
+#      MYSQL_USER: ${MYSQL_USER}
+#      MYSQL_PW: ${MYSQL_PW}
+#      WP_DB_NAME: ${WP_DB_NAME}
 
 networks:
   nginx-wp:

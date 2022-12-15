@@ -1,11 +1,19 @@
 #!/bin/sh
 
-#if [ ! -f wp-config.php]
+if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
+
 wget http://wordpress.org/latest.tar.gz
 tar vxfz latest.tar.gz
-mv wordpress/* .
 rm -rf latest.tar.gz
-rm -rf wordpress
 
-tail -f /dev/null
-#/usr/sbin/php-fpm7.3 -F
+sed -i "s/database_name_here/$WP_DB_NAME/g" wordpress/wp-config-sample.php
+sed -i "s/username_here/$MYSQL_USER/g" wordpress/wp-config-sample.php
+sed -i "s/password_here/$MYSQL_PW/g" wordpress/wp-config-sample.php
+sed -i "s/localhost/localhost:3306/g" wordpress/wp-config-sample.php
+mv wordpress/wp-config-sample.php wordpress/wp-config.php
+
+mv wordpress /var/www/html
+
+fi
+
+exec /usr/sbin/php-fpm7 -F
