@@ -20,7 +20,7 @@ services:
     networks:
       - nginx-wp
       - wp-db
-    expose:
+    ports:
       - "9000:9000"
     depends_on:
       - mariadb
@@ -37,8 +37,8 @@ services:
       - /home/pmira-pe/data:/var/run/mysql
     networks:
       - wp-db
-    expose:
-     - "3306:3306"
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       MYSQL_ROOT_PW: ${MYSQL_ROOT_PW}
