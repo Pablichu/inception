@@ -2,13 +2,13 @@ version: "3.9"
 services:
   nginx:
     build: ./requirements/nginx
-   volumes:
+    volumes:
      - /home/pmira-pe/data/wordpress:/var/www/html
     ports:
       - "80:80"
       - "443:443"
     networks:
-      - "nginx-wp"
+      - nginx-wp
     environment:
       - DOMAIN_NAME=${DOMAIN_NAME}
     restart: always
