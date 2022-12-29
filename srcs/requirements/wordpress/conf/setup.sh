@@ -15,7 +15,7 @@ sed -i "s/localhost/localhost:3306/g" wordpress/wp-config-sample.php
 mv wordpress/wp-config-sample.php wordpress/wp-config.php
 
 mv wordpress /var/www/html
-chown www-data:www-data /var/www/html
+chown www-data:www-data /var/www/html/wordpress
 
 fi
 
