@@ -12,6 +12,9 @@ services:
     environment:
       - DOMAIN_NAME=${DOMAIN_NAME}
     restart: always
+    depends_on:
+      - mariadb
+      - wordpress
 
   wordpress:
     build: ./requirements/wordpress
@@ -22,9 +25,6 @@ services:
       - wp-db
     ports:
       - "9000:9000"
-    depends_on:
-      - mariadb
-      - nginx
     environment:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PW: ${MYSQL_PW}
