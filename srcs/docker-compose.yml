@@ -23,8 +23,6 @@ services:
     networks:
       - nginx-wp
       - wp-db
-    ports:
-      - "9000:9000"
     environment:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PW: ${MYSQL_PW}
@@ -37,8 +35,6 @@ services:
       - /home/pmira-pe/data/mariadb:/var/run/mysql
     networks:
       - wp-db
-    ports:
-      - "3306:3306"
     restart: always
     environment:
       MYSQL_ROOT_PW: ${MYSQL_ROOT_PW}
