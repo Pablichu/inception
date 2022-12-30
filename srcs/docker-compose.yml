@@ -3,7 +3,7 @@ services:
   nginx:
     build: ./requirements/nginx
     volumes:
-     - /home/pmira-pe/data/wordpress:/var/www/html
+     - /home/pmira-pe/data/websites:/var/www/html
     ports:
       - "80:80"
       - "443:443"
@@ -16,7 +16,7 @@ services:
   wordpress:
     build: ./requirements/wordpress
     volumes:
-     - /home/pmira-pe/data/wordpress:/var/www/html
+     - /home/pmira-pe/data/websites:/var/www/html
     networks:
       - nginx-wp
       - wp-db
