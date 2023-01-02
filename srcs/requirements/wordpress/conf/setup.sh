@@ -17,6 +17,7 @@ mv wordpress /var/www/html
 
 if [ ! -f /etc/php7/php-fpm.d/www.conf ]; then
 	echo "QUE NO ESTÁ PREEM"
+	exit(1);
 fi
 sed -i "s/127.0.0.1:9000/0.0.0.0:9000/g" /etc/php7/php-fpm.d/www.conf
 
