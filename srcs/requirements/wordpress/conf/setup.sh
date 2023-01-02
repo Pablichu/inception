@@ -15,7 +15,7 @@ mv wordpress/wp-config-sample.php wordpress/wp-config.php
 mv wordpress /var/www/html
 #chown www-data:www-data /var/www/html/wordpress
 
-sed -i "s/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g" /etc/php7/php-fpm.d/www.conf
+sed -i "s/127.0.0.1:9000/0.0.0.0:9000/g" /etc/php7/php-fpm.d/www.conf
 
 fi
 
