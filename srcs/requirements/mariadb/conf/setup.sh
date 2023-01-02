@@ -35,8 +35,8 @@ EOF
 fi
 
 #Allow 
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0:3306|g" /etc/my.cnf
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0:3306|g" /etc/my.cnf.d/mariadb-server.cnf
 
 exec /usr/bin/mysqld -u mysql --console
 #tail -f /dev/null
