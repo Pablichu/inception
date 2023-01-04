@@ -29,7 +29,6 @@ CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PW';
 GRANT ALL PRIVILEGES ON $WP_DB_NAME.* TO '$MYSQL_USER'@'localhost';
 FLUSH PRIVILEGES;
 EOF
-	# run init.sql
 	/usr/bin/mysqld --user=root --bootstrap < $tfile
 	rm -f $tfile
 fi
@@ -38,5 +37,5 @@ fi
 #sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf
 sed -i "s/skip-networking/bind-address=0.0.0.0/g" /etc/my.cnf.d/mariadb-server.cnf
 
-exec /usr/bin/mysqld -u mysql --console
+exec /usr/bin/mysqld -u root 
 #tail -f /dev/null
