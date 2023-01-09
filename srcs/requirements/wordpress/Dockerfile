@@ -3,6 +3,7 @@ FROM alpine:3.15.6
 RUN apk update && apk upgrade && apk add --no-cache \
 		php7 \
 		php7-fpm \
+		php7-json \
 		php7-curl \
 		php7-opcache \
 		php7-mysqli \
