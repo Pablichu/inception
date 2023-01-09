@@ -1,7 +1,7 @@
-- Do a proper Makefile
-- sh for every container to configurate nginx(ssl), wordpress & mariabd 
-- Mariadb starts up but we do not configure well the database
-
+ACTUAL STATE:
+Everything seems to work but CSS are sent bad because they should be "text/css" instead of "text/plain"
+Dont know exactly why it's happening
+nginx.conf was moved to /etc/nginx/conf.d from /etc/nginx/http.d and now it doesn't work
 
 Progress:
 The structure of the project is done, now every container must settup properly.
