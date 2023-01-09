@@ -9,7 +9,7 @@ rm -rf latest.tar.gz
 sed -i "s/database_name_here/$WP_DB_NAME/g" wordpress/wp-config-sample.php
 sed -i "s/username_here/$MYSQL_USER/g" wordpress/wp-config-sample.php
 sed -i "s/password_here/$MYSQL_PW/g" wordpress/wp-config-sample.php
-sed -i "s/localhost/localhost:3306/g" wordpress/wp-config-sample.php
+sed -i "s/localhost/localhost/g" wordpress/wp-config-sample.php
 mv wordpress/wp-config-sample.php wordpress/wp-config.php
 
 mv wordpress /var/www/html
