@@ -34,7 +34,7 @@ services:
   mariadb:
     build: ./requirements/mariadb
     volumes:
-      - /home/pmira-pe/data/mariadb:/var/lib/mysql/${WP_DB_NAME}
+      - /home/pmira-pe/data/mariadb/${WP_DB_NAME}:/var/lib/mysql/${WP_DB_NAME}
     networks:
       - wp-db
     restart: always
