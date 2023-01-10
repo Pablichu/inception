@@ -30,6 +30,7 @@ services:
     restart: always
     depends_on:
       - mariadb
+      - redis
 
   mariadb:
     build: ./requirements/mariadb
@@ -43,6 +44,13 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PW: ${MYSQL_PW}
       WP_DB_NAME: ${WP_DB_NAME}
+
+  redis:
+    build: ./requirements/bonus/redis
+    #volumes:?
+    networks:
+      - wp-db
+    restart: always
 
 networks:
   nginx-wp:
