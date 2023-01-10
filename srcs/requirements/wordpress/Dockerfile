@@ -15,8 +15,8 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		php7-sodium \
 		php7-xml \
 		php7-zip \
-		php7-openssl
-		php-redis
+		php7-openssl \
+		php7-redis
 		#ftp
 
 RUN apk update && apk upgrade && apk add --no-cache \
