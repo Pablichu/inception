@@ -9,6 +9,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
                 -subj "/CN=$DOMAIN_NAME/C=SP/L=MADRID" \
                 -keyout /etc/sslcerts/private.key -out /etc/sslcerts/certificate.crt 
 
-COPY ./conf/nginx.conf /etc/nginx/conf.d
+COPY ./conf/nginx.conf /etc/nginx/http.d
 
 ENTRYPOINT [ "nginx", "-g", "daemon off;"]
