@@ -14,10 +14,16 @@ sed -i "s/password_here/$MYSQL_PW/g" wordpress/wp-config-sample.php
 sed -i "s/localhost/mariadb/g" wordpress/wp-config-sample.php
 mv wordpress/wp-config-sample.php wordpress/wp-config.php
 
-#Download & install redis plugin
-#wget https://downloads.wordpress.org/plugin/redis-cache.2.2.2.zip
-#mv object-cache.php /var/www/html/wordpress/wp-content/plugin
 mv wordpress /var/www/html
+
+fi
+
+if [ ! -f /var/www/html/wordpress/wp-content/plugins/redis-cache]; then
+
+#Download & install redis plugin
+wget https://downloads.wordpress.org/plugin/redis-cache.2.2.2.zip
+unzip redis-cache.2.2.2.zip
+mv object-cache.php /var/www/html/wordpress/wp-content/plugin
 
 fi
 
