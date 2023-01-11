@@ -18,12 +18,14 @@ mv wordpress /var/www/html
 
 fi
 
-if [ ! -f /var/www/html/wordpress/wp-content/plugins/redis-cache]; then
+if [ ! -f /var/www/html/wordpress/wp-content/plugins/object-cache.php]; then
 
 #Download & install redis plugin
-wget https://downloads.wordpress.org/plugin/redis-cache.2.2.2.zip
-unzip redis-cache.2.2.2.zip
-mv object-cache.php /var/www/html/wordpress/wp-content/plugin
+wget https://downloads.wordpress.org/plugin/redis-cache.2.2.3.zip -P /tmp
+unzip /tmp/redis-cache.2.2.2.zip
+rm /tmp/redis-cache.2.2.2.zip
+cp /tmp/redis-cache/includes/object-cache.php /var/www/html/wordpress/wp-content/
+mv /tmp/redis-cache /var/www/html/wordpress/wp-content/plugins
 
 fi
 
