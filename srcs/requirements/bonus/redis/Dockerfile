@@ -6,4 +6,4 @@ RUN apk update && apk upgrade && apk add --no-cache \
 #COPY redis.conf /usr/local/etc/redis/redis.conf
 #CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 
-ENTRYPOINT [ "redis-server", "--protected-mode", "no". "--daemonize", "yes" ]
+ENTRYPOINT [ "redis-server", "--protected-mode", "no", "--daemonize", "yes" ]
