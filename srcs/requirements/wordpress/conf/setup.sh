@@ -21,9 +21,9 @@ fi
 if [ ! -f "/var/www/html/wordpress/wp-content/plugins/object-cache.php" ]; then
 
 #Download & install redis plugin
-wget https://downloads.wordpress.org/plugin/redis-cache.2.2.2.zip
-unzip redis-cache.2.2.2.zip
-rm redis-cache.2.2.2.zip
+wget https://downloads.wordpress.org/plugin/redis-cache.2.2.3.zip
+unzip redis-cache.2.2.3.zip
+rm redis-cache.2.2.3.zip
 cp redis-cache/includes/object-cache.php /var/www/html/wordpress/wp-content/
 mv redis-cache /var/www/html/wordpress/wp-content/plugins
 
