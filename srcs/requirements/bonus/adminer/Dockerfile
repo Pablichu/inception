@@ -23,4 +23,4 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		# php-sqlsrv \
 		# php-mssql \
 
-ENTRYPOINT [ "/usr/sbin/php-fpm7 -F" ]
+ENTRYPOINT [ "/usr/sbin/php-fpm7" ,"-F" ]
