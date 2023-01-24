@@ -1,6 +1,8 @@
 FROM alpine:3.15.6
 
 RUN apk update && apk upgrade && apk add --no-cache \
-		vsftpd
+		vsftpd \
+		tini
 
-ENTRYPOINT [ "sbin/tini", "--", "pidproxy /var/run/vsftpd/vsftpd.pid true" ]
+ENTRYPOINT
+#ENTRYPOINT [ "sbin/tini", "--", "pidproxy /var/run/vsftpd/vsftpd.pid true" ]
