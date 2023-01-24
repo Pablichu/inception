@@ -1,6 +1,8 @@
 FROM alpine:3.15.6
 
 RUN apk update && apk upgrade && apk add --no-cache \
+		php7 \
+		php7-fpm \
 		php7-session \
 	    php7-bz2 \
 	    php7-mysqli \
