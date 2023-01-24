@@ -48,7 +48,6 @@ services:
   #BONUS
   redis:
     build: ./requirements/bonus/redis
-    #volumes:?
     networks:
       - wp-db
     restart: always
@@ -58,10 +57,22 @@ services:
   #  #volumes:
   #  #  - /home/pmira-pe/data/wordpress/${WP_DB_NAME}:?
   #  ports:
+  #  - "20:20"
   #  - "21:21"
   #  - "21000-21010:21000-21010"
   #  restart: always
   #  #environment:
+
+  adminer:
+    build: ./requirements/bonus/adminer
+    networks:
+      - wp-db
+      - nginx-wp
+    volumes:
+     - /home/pmira-pe/data/websites:/var/www/html
+    restart: always
+    depends_on:
+      - wordpress
       
     
 
