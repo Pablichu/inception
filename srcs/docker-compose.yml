@@ -53,15 +53,15 @@ services:
       - wp-db
     restart: always
 
-  ftp:
-    build: ./requirements/bonus/ftp
-    #volumes:
-    #  - /home/pmira-pe/data/wordpress/${WP_DB_NAME}:?
-    ports:
-    - "20:20"
-    - "21:21"
-    restart: always
-    #environment:
+  #ftp:
+  #  build: ./requirements/bonus/ftp
+  #  #volumes:
+  #  #  - /home/pmira-pe/data/wordpress/${WP_DB_NAME}:?
+  #  ports:
+  #  - "21:21"
+  #  - "21000-21010:21000-21010"
+  #  restart: always
+  #  #environment:
       
     
 
