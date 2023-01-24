@@ -4,5 +4,5 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		vsftpd \
 		tini
 
-ENTRYPOINT
+ENTRYPOINT [ "tail -F"]
 #ENTRYPOINT [ "sbin/tini", "--", "pidproxy /var/run/vsftpd/vsftpd.pid true" ]
