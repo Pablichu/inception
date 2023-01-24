@@ -61,7 +61,7 @@ services:
     - "20:20"
     - "21:21"
     restart: always
-    environment:
+    #environment:
       
     
 
