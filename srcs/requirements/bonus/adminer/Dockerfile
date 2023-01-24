@@ -16,6 +16,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		# php-sqlsrv \
 		# php-mssql \
 	    sqlite \
+		wget \
 	    unzip \
 		&& wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 		&& unzip adminer-4.8.1.php
