@@ -18,7 +18,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
 	    sqlite \
 		wget \
 	    unzip \
-		&& wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+		&& wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php \
 		&& unzip adminer-4.8.1.php
 
 ENTRYPOINT [ "/usr/sbin/php-fpm7 -F" ]
