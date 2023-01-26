@@ -14,13 +14,8 @@ RUN apk update && apk upgrade && apk add --no-cache \
 	    php7-zip \
 	    sqlite \
 		wget \
-	    unzip \
-		&& wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
-		#&& unzip adminer-4.8.1.php
-		# php7-mysql \
-		# php-oci8 \
-		# php-pdo_oci \
-		# php-sqlsrv \
-		# php-mssql \
+	    unzip
 
-ENTRYPOINT [ "/usr/sbin/php-fpm7" ,"-F" ]
+COPY ./conf/setup.sh setup.sh
+
+ENTRYPOINT [ "sh", "setup.sh" ]
