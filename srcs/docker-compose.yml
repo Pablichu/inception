@@ -77,7 +77,7 @@ services:
   portainer:
     image: portainer/portainer:1.25.0-alpine
     ports:
-      - "9443:9443"
+      - "8000:8000"
     volumes:
       - /home/pmira-pe/data/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
