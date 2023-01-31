@@ -23,3 +23,15 @@ Shell tutorial: http://trajano.us.es/~fjfj/shell/shellscript.htm
 Alpine wiki mariadb: https://wiki.alpinelinux.org/wiki/MariaDB
 
 Alpine wiki Wordpress: https://wiki.alpinelinux.org/wiki/WordPress
+
+FTP LINKS:
+
+https://www.redeszone.net/tutoriales/servidores/vsftpd-configuracion-servidor-ftp/
+
+container
+https://hub.docker.com/layers/delfer/alpine-ftp-server/latest/images/sha256-67523588d6de54c0fa528c6522745c8429b632b5b8f4a075d35a0e957f41ed25?context=explore
+
+install
+https://www.hiroom2.com/2017/08/22/alpinelinux-3-6-vsftpd-en/
+
+https://github.com/delfer/docker-alpine-ftp-server/blob/master/Dockerfile
