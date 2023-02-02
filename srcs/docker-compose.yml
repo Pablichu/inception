@@ -52,15 +52,15 @@ services:
       - wp-db
     restart: always
 
-  #ftp:
-  #  build: ./requirements/bonus/ftp
-  #  #volumes:
-  #  #  - /home/pmira-pe/data/wordpress/${WP_DB_NAME}:?
-  #  ports:
-  #  - "20:20"
-  #  - "21:21"
-  #  - "21000-21010:21000-21010"
-  #  restart: always
+  ftp:
+    build: ./requirements/bonus/ftp
+    volumes:
+     - /home/pmira-pe/data/websites:/var/www/html
+    ports:
+    - "20:20"
+    - "21:21"
+    - "21000-21010:21000-21010"
+    restart: always
   #  #environment:
 
   adminer:
@@ -74,14 +74,14 @@ services:
     depends_on:
       - wordpress
     
-  portainer:
-    image: portainer/portainer:1.25.0-alpine
-    ports:
-      - "9000:9000"
-    volumes:
-      - /home/pmira-pe/data/portainer:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: always
+#  portainer:
+#    image: portainer/portainer:1.25.0-alpine
+#    ports:
+#      - "9000:9000"
+#    volumes:
+#      - /home/pmira-pe/data/portainer:/data
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    restart: always
 
 
 networks:
