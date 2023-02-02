@@ -5,4 +5,4 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		tini
 
 #ENTRYPOINT [ "tail", "-f", "/dev/null" ]
-ENTRYPOINT [ "/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf" ]
+ENTRYPOINT [ "/sbin/tini", "--", "/usr/sbin/vsftpd", "/etc/vsftpd/vsftpd.conf" ]
