@@ -1,10 +1,9 @@
 ACTUAL STATE:
-Everything seems to work but CSS are sent bad because they should be "text/css" instead of "text/plain"
-Dont know exactly why it's happening
-nginx.conf was moved to /etc/nginx/conf.d from /etc/nginx/http.d and now it doesn't work
 
-Progress:
-The structure of the project is done, now every container must settup properly.
+- Check what actually they want by pmira-pe.42.fr
+- Everytime we start up wordpress, it will acumulate info in wp-config.php for redis plugin
+
+
 
 Knowledge:
 CMD - The CMD describes the default container parameters or commands. The user can easily override the default command when you use this.
