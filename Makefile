@@ -17,4 +17,7 @@ clean:
 
 re: clean all
 
-.PHONY: all down clean re
+cache:
+	docker system prune -a
+
+.PHONY: all down clean re cache
