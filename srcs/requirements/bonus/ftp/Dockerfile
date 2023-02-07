@@ -4,7 +4,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		vsftpd \
 		tini
 
-RUN sed -i "s/^#/d" /etc/vsftpd/vsftpd.conf \
+RUN sed -i "/^#/d" /etc/vsftpd/vsftpd.conf \
 	echo "seccomp_sandbox=NO" >> /etc/vsftpd/vsftpd.conf \
 	echo "listen=YES" >> /etc/vsftpd/vsftpd.conf \
 	echo "local_enable=NO" >> /etc/vsftpd/vsftpd.conf \
