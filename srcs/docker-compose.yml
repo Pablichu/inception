@@ -79,6 +79,11 @@ services:
       - "9000:9000"
     restart: always
 
+  static_web:
+    build: ./requirements/bonus/static_web
+    volumes:
+     - /home/pmira-pe/data/websites:/var/www/html
+
 
 networks:
   nginx-wp:
