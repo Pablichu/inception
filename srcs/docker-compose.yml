@@ -61,6 +61,8 @@ services:
     - "21:21"
     - "21100-21110:21100-21110"
     restart: always
+    depends_on:
+     - wordpress
 
   adminer:
     build: ./requirements/bonus/adminer
