@@ -1,6 +1,6 @@
 ACTUAL STATE:
 
-- Check what actually they want by pmira-pe.42.fr
+- FTP permits directory not working
 - Everytime we start up wordpress, it will acumulate info in wp-config.php for redis plugin
 
 
