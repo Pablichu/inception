@@ -10,7 +10,7 @@ RUN sed -i "/^#/d" /etc/vsftpd/vsftpd.conf && \
 	echo "anon_upload_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
 	echo "write_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
 	echo "anon_mkdir_write_enable=YES" >> /etc/vsftpd/vsftpd.conf && \
-	echo "anon_root=/home/ftp" >> /etc/vsftpd/vsftpd.conf \
+	echo "anon_root=/var/www/html" >> /etc/vsftpd/vsftpd.conf \
 	echo "pasv_enable=YES" >> /etc/vsftpd/vsftpd.conf \
 	echo "pasv_max_port=21110" >> /etc/vsftpd/vsftpd.conf \
 	echo "pasv_min_port=21100" >> /etc/vsftpd/vsftpd.conf
