@@ -74,12 +74,9 @@ services:
       - wordpress
     
   portainer:
-    image: ./requirements/bonus/portainer
+    image: portainer/portainer:1.25.0-alpine
     ports:
       - "9000:9000"
-    volumes:
-      - /home/pmira-pe/data/portainer:/data
-      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
 
