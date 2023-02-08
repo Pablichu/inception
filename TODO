@@ -1,6 +1,6 @@
 ACTUAL STATE:
 
-- FTP permits directory not working
+- FTP permits directory not working. We have to use a script
 - Everytime we start up wordpress, it will acumulate info in wp-config.php for redis plugin
 
 
