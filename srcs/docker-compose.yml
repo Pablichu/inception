@@ -61,7 +61,6 @@ services:
     - "21:21"
     - "21100-21110:21100-21110"
     restart: always
-  #  #environment:
 
   adminer:
     build: ./requirements/bonus/adminer
@@ -74,14 +73,14 @@ services:
     depends_on:
       - wordpress
     
-#  portainer:
-#    image: portainer/portainer:1.25.0-alpine
-#    ports:
-#      - "9000:9000"
-#    volumes:
-#      - /home/pmira-pe/data/portainer:/data
-#      - /var/run/docker.sock:/var/run/docker.sock
-#    restart: always
+  portainer:
+    image: ./requirements/bonus/portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - /home/pmira-pe/data/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
 
 
 networks:
