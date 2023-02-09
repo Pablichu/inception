@@ -2,7 +2,7 @@ FROM node:lts-alpine3.16 AS build
 
 WORKDIR /app
 
-RUNapk update && apk upgrade && apk add --no-cache git && \
+RUN apk update && apk upgrade && apk add --no-cache git && \
 	git clone https://github.com/Pablichu/my_first_svelte-static-web.git && \
     mv my_first_svelte-static-web/* . && \
     rmdir my_first_svelte-static-web
