@@ -11,7 +11,7 @@ RUN apk update && apk upgrade && apk add --no-cache git && \
 RUN npm install && \
     npm run build
 
-FROM alpine:3.15.6
-COPY --from=build /app/public /var/www/html
+#FROM alpine:3.15.6
+#COPY --from=build /app/public /var/www/html
 
 ENTRYPOINT [ "tail", "-F", "/dev/null"]
