@@ -11,6 +11,6 @@ RUN npm install && \
     npm run build
 
 FROM alpine:3.15.6
-COPY --from=build /app/dist /var/www/html/dist
+COPY --from=build /app/dist /tmp
 
 ENTRYPOINT [ "tail", "-F", "/dev/null"]
