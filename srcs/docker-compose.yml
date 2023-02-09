@@ -71,7 +71,7 @@ services:
       - wp-db
       - nginx-wp
     volumes:
-     - /home/pmira-pe/data/websites:/var/www/html
+      - /home/pmira-pe/data/websites:/var/www/html
     restart: always
     depends_on:
       - wordpress
@@ -81,11 +81,13 @@ services:
     ports:
       - "9000:9000"
     restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   static_web:
     build: ./requirements/bonus/static_web
     volumes:
-     - /home/pmira-pe/data/websites:/var/www/html
+      - /home/pmira-pe/data/websites:/var/www/html
 
 
 networks:
