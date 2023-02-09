@@ -12,3 +12,5 @@ RUN npm install && \
 
 FROM alpine:3.15.6
 COPY --from=build /app/public /var/www/html
+
+ENTRYPOINT [ "tail", "-F", "/dev/null"]
