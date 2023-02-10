@@ -57,12 +57,14 @@ services:
     volumes:
      - /home/pmira-pe/data/websites:/var/www/html
     ports:
-    - "20:20"
-    - "21:21"
-    - "21100-21110:21100-21110"
+      - "20:20"
+      - "21:21"
+      - "21100-21110:21100-21110"
     restart: always
     depends_on:
-     - wordpress
+      - wordpress
+    environment:
+      FTP_USER: ${FTP_USER}
 
   adminer:
     build: ./requirements/bonus/adminer
