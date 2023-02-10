@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! grep -q -F "pasv_enable=YES" "/etc/vsftpd/vsftpd.conf" ]; then
+if ! grep -q -F "pasv_enable=YES" "/etc/vsftpd/vsftpd.conf"; then
 sed -i "/^#/d" /etc/vsftpd/vsftpd.conf
 echo "seccomp_sandbox=NO" >> /etc/vsftpd/vsftpd.conf
 echo "local_enable=NO" >> /etc/vsftpd/vsftpd.conf
