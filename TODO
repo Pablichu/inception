@@ -1,9 +1,8 @@
 ACTUAL STATE:
 
 - FTP permits directory not working. We have to use a script
-- Everytime we start up wordpress, it will acumulate info in wp-config.php for redis plugin
+   Redis cache has no writeable right if we change user permits for wordpress directory
 - Need to configure Nginx right
-- Redis cache has no writeable right if we change user permits for wordpress directory
 - Redis cache plugin is always downloaded in wordpress container
 
 
