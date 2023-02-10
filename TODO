@@ -1,8 +1,6 @@
 ACTUAL STATE:
 
 - Need to configure Nginx right
-- Redis cache plugin is always downloaded in wordpress container
-
 
 
 Knowledge:
@@ -10,6 +8,7 @@ CMD - The CMD describes the default container parameters or commands. The user c
 ENTRYPOINT - A container with an ENTRYPOINT is preferred when you want to define an executable. You can only override it if you use the --entrypoint flag.
 
 .env set enviromental variables for docker-compose
+
 
 Links:
 Docker best practices: https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/
@@ -21,6 +20,8 @@ WP beginners guide: https://www.wpbeginner.com/beginners-guide/beginners-guide-t
 Shell tutorial: http://trajano.us.es/~fjfj/shell/shellscript.htm
 
 Alpine wiki mariadb: https://wiki.alpinelinux.org/wiki/MariaDB
+
+
 
 FTP LINKS:
 
