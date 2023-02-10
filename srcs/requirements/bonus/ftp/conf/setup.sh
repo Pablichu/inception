@@ -18,7 +18,7 @@ echo "pasv_enable=YES" >> /etc/vsftpd/vsftpd.conf
 echo "pasv_max_port=21110" >> /etc/vsftpd/vsftpd.conf
 echo "pasv_min_port=21100" >> /etc/vsftpd/vsftpd.conf
 
-adduser $FTP_USER --disable-password
+adduser $FTP_USER --disabled-password
 chown $FTP_USER /var/www/html
 #chmod 744 /var/www/html
 
