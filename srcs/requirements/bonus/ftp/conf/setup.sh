@@ -1,4 +1,4 @@
-|#!/bin/sh
+#!/bin/sh
 
 if [ ! grep -Fq "pasv_enable=YES" "/etc/vsftpd/vsftpd.conf" ]; then
 sed -i "/^#/d" /etc/vsftpd/vsftpd.conf
