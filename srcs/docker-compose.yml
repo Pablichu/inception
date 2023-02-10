@@ -65,6 +65,7 @@ services:
       - wordpress
     environment:
       FTP_USER: ${FTP_USER}
+      FTP_PASS: ${FTP_PASS}
 
   adminer:
     build: ./requirements/bonus/adminer
