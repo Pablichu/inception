@@ -30,7 +30,7 @@ chown -R nobody:nobody redis-cache
 cp redis-cache/includes/object-cache.php /var/www/html/wordpress/wp-content/
 mv redis-cache /var/www/html/wordpress/wp-content/plugins
 
-if [ ! grep -q "define( 'WP_REDIS_HOST', 'redis' );" "/var/www/html/wordpress/wp-config.php" ]; then
+if ! grep -q "define( 'WP_REDIS_HOST', 'redis' );" "/var/www/html/wordpress/wp-config.php"; then
 sed -i "1 a define( 'WP_CACHE_KEY_SALT', 'pmira-pe.42.fr' );" /var/www/html/wordpress/wp-config.php
 sed -i "2 a define( 'WP_REDIS_HOST', 'redis' );" /var/www/html/wordpress/wp-config.php
 fi
