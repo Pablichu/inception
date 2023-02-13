@@ -7,8 +7,8 @@ mv /tmp/* /var/www/html/static
 
 elif [ -f "/tmp/index.html" ]; then
 
-rm -rf /var/www/html/static
-mv /tmp/* /var/www/html/static/*
+rm -rf /var/www/html/static/*
+mv /tmp/* /var/www/html/static
 
 fi
 
