@@ -79,7 +79,7 @@ services:
       - wordpress
     
   portainer:
-    image: portainer/portainer:1.25.0-alpine
+    build: ./requirements/bonus/portainer
     ports:
       - "9000:9000"
     restart: always
