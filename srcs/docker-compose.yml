@@ -1,5 +1,6 @@
 version: "3.9"
 services:
+  #Mandatory
   nginx:
     build: ./requirements/nginx
     volumes:
@@ -91,7 +92,7 @@ services:
     volumes:
       - /home/pmira-pe/data/websites:/var/www/html
 
-
+# Networks
 networks:
   nginx-wp:
   wp-db:

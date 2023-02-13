@@ -37,6 +37,7 @@ fi
 
 fi
 
+# Making php-fpm to listen every ip (not only 127.0.0.1 because docker assing random ip for every service)
 sed -i "s/127.0.0.1:9000/0.0.0.0:9000/g" /etc/php7/php-fpm.d/www.conf
 
 exec /usr/sbin/php-fpm7 -F

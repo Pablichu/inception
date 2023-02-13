@@ -17,11 +17,6 @@ if [ ! -d "var/lib/mysql/$WP_DB_NAME" ]; then
 		return 1
 	fi
 
-#UPDATE mysql.user SET Password = PASSWORD($MYSQL_ROOT_PW) WHERE User = 'root';
-#DROP USER ''@'localhost';
-#DROP USER ''@'$(hostname)';
-#DROP DATABASE test;
-#FLUSH PRIVILEGES;
 	cat << EOF > $tfile
 FLUSH PRIVILEGES;
 CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;
@@ -33,10 +28,8 @@ EOF
 	rm -f $tfile
 fi
 
-#Allow 
-#sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf
+#Allow
 sed -i "s/.*bind-address\s*=.*/bind-address=0.0.0.0/g" /etc/my.cnf.d/mariadb-server.cnf
 sed -i "s/skip-networking/#skip-networking/g" /etc/my.cnf.d/mariadb-server.cnf
 
 exec /usr/bin/mysqld -u root 
-#tail -f /dev/null
