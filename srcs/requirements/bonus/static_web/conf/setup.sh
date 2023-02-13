@@ -12,7 +12,8 @@ mv /tmp/* /var/www/html/static
 
 fi
 
-
+sed -i "s+/assets/+assets/+g" /var/www/html/static/index.html
+sed -i "s+/assets/+assets/+g" /var/www/html/static/assets/*.js
 sed -i "s+src/assets+assets+g" /var/www/html/static/assets/*.js
 
 exec tail -F /dev/null
