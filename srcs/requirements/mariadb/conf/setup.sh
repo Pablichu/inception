@@ -18,7 +18,6 @@ if [ ! -d "var/lib/mysql/$WP_DB_NAME" ]; then
 	fi
 
 	cat << EOF > $tfile
-FLUSH PRIVILEGES;
 CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;
 CREATE USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PW';
 GRANT ALL ON $WP_DB_NAME.* to '$MYSQL_USER'@'%';
