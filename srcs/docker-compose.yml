@@ -4,11 +4,11 @@ services:
   nginx:
     build: ./requirements/nginx
     volumes:
-     - /home/pmira-pe/data/websites:/var/www/html
+     - websites:/var/www/html
     ports:
       - "443:443"
     networks:
-      - nginx-wp
+      - nginx-fpm
     environment:
       - DOMAIN_NAME=${DOMAIN_NAME}
     restart: always
@@ -20,10 +20,10 @@ services:
   wordpress:
     build: ./requirements/wordpress
     volumes:
-     - /home/pmira-pe/data/websites:/var/www/html
+     - websites:/var/www/html
     networks:
-      - nginx-wp
-      - wp-db
+      - nginx-fpm
+      - fpm-db
     environment:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PW: ${MYSQL_PW}
@@ -36,9 +36,9 @@ services:
   mariadb:
     build: ./requirements/mariadb
     volumes:
-      - /home/pmira-pe/data/mariadb/${WP_DB_NAME}:/var/lib/mysql
+      - db:/var/lib/mysql
     networks:
-      - wp-db
+      - fpm-db
     restart: always
     environment:
       MYSQL_ROOT_PW: ${MYSQL_ROOT_PW}
@@ -50,13 +50,13 @@ services:
   redis:
     build: ./requirements/bonus/redis
     networks:
-      - wp-db
+      - fpm-db
     restart: always
 
   ftp:
     build: ./requirements/bonus/ftp
     volumes:
-     - /home/pmira-pe/data/websites:/var/www/html
+     - websites:/var/www/html
     ports:
       - "20:20"
       - "21:21"
@@ -71,10 +71,10 @@ services:
   adminer:
     build: ./requirements/bonus/adminer
     networks:
-      - wp-db
-      - nginx-wp
+      - fpm-db
+      - nginx-fpm
     volumes:
-      - /home/pmira-pe/data/websites:/var/www/html
+      - websites:/var/www/html
     restart: always
     depends_on:
       - wordpress
@@ -90,9 +90,22 @@ services:
   static_web:
     build: ./requirements/bonus/static_web
     volumes:
-      - /home/pmira-pe/data/websites:/var/www/html
+      - websites:/var/www/html
 
-# Networks
+# Networks definition
 networks:
-  nginx-wp:
-  wp-db:
+  nginx-fpm:
+  fpm-db:
+
+# Volumes configuration
+volumes:
+  websites:
+    driver_opts:
+      type: none
+      device: /home/pmira-pe/data/websites/${WP_DB_NAME}
+      o: bind
+  db:
+    driver_opts:
+      type: none
+      device: /home/pmira-pe/data/mariadb/${WP_DB_NAME}
+      o: bind
