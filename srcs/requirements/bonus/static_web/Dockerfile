@@ -11,6 +11,7 @@ RUN npm install && \
     npm run build
 
 FROM alpine:3.15.6
+
 COPY ./conf/setup.sh .
 COPY --from=build /app/dist /tmp
 COPY --from=build /app/src/assets /tmp/assets

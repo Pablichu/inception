@@ -18,7 +18,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
 		php7-openssl \
 		php7-ctype \
 		php7-redis
-		#ftp
 
 RUN apk update && apk upgrade && apk add --no-cache \
 		wget \
